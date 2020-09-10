@@ -1,3 +1,9 @@
-h1 {
-    color: firebrick;
+#generator-body {
+    background-color: whitesmoke;
+}
+
+#password-area {
+    border: dashed green 2px;
+    font-size: 30px;
+    padding: 20% 0;
 }
