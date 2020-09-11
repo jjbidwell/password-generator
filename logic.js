@@ -120,6 +120,7 @@ function random(x){
 }
 
 function buttonPress (){
+
     var upperCase = confirm('Does your password need upper case letters?') 
     var specialCharacters = confirm('Does your password need special characters?');
     var numbers = confirm('Does your password need numbers?');
@@ -139,6 +140,13 @@ function buttonPress (){
             }
             
     };
+    upperCase = false;
+    specialCharacters = false;
+    numbers = false;
+    passwordArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
+                    'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 
+                    't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    password = "";
 };
                 
 
