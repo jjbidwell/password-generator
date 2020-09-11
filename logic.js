@@ -108,29 +108,41 @@ var passwordArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var password = '';
+var randomNumber;
 
 
+button.onclick = function(){
+    buttonPress()
+};
 
+function random(x){
+    randomNumber = Math.floor(Math.random() * x);
+}
 
 function buttonPress (){
     var upperCase = confirm('Does your password need upper case letters?') 
     var specialCharacters = confirm('Does your password need special characters?');
     var numbers = confirm('Does your password need numbers?');
     var passwordLength = parseInt(prompt('How long would you like your password? (type any number between 8-128'));
-    
     if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
         alert('Invalid selection: Please try again, making sure your length is a number between 8-128.');
     } else {
-
-    } 
-
-                
+            //Everything on
+        if(specialCharacters === true && numbers ===true){
+            passwordGenerator(true, true, passwordLength);
+            } else if (specialCharacters === false && numbers ===true){
+            passwordGenerator(false, true, passwordLength);
+            } else if (specialCharacters === true && numbers === false){
+            passwordGenerator(true, false, passwordLength);
+            } else {
+            passwordGenerator(false, false, passwordLength);
+            }
+            
+    };
 };
+                
 
-passwordGenerator(true, true);;
-
-
-function passwordGenerator (special, numbers){
+function passwordGenerator(special, numbers, passLength){
 
     if (special === true){
         for (var i = 0; i< specialCharactersArray.length; i++){
@@ -142,5 +154,12 @@ function passwordGenerator (special, numbers){
            passwordArray.push(numbersArray[i]); 
         }
     }
-console.log(passwordArray);
+
+    for(var i = 0; i < passLength; i++){
+        random(passwordArray.length);
+        password += passwordArray[randomNumber];
+    }
+
+    textArea.innerHTML = password;
 }
+
