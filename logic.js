@@ -107,7 +107,8 @@ var specialCharactersArray = ['&amp;', '&excl;', '&num;',
 var passwordArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 
 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var password = '';
+var password = [];
+var passwordFinal = "";
 var randomNumber;
 
 
@@ -128,15 +129,30 @@ function buttonPress (){
     if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
         alert('Invalid selection: Please try again, making sure your length is a number between 8-128.');
     } else {
-            //Everything on
-        if(specialCharacters === true && numbers ===true){
-            passwordGenerator(true, true, passwordLength);
-            } else if (specialCharacters === false && numbers ===true){
-            passwordGenerator(false, true, passwordLength);
-            } else if (specialCharacters === true && numbers === false){
-            passwordGenerator(true, false, passwordLength);
+        if(specialCharacters === true && numbers === true && upperCase === true){
+            //Everything
+            passwordGenerator(true, true, true, passwordLength);
+            } else if(specialCharacters === true && numbers === true && upperCase === false){
+            //Special characters and numbers
+            passwordGenerator(true, true, false, passwordLength);
+            } else if(specialCharacters === true && numbers === false && upperCase === true){
+            //Special characters and uppercase
+            passwordGenerator(true, false, true, passwordLength);
+            } else if(specialCharacters === true && numbers === false && upperCase === false){
+            //Special characters 
+            passwordGenerator(true, false, false, passwordLength);
+            } else if(specialCharacters === false && numbers === true && upperCase === false){
+            //numbers
+            passwordGenerator(false, true, false, passwordLength);
+            } else if(specialCharacters === false && numbers === false && upperCase === true){
+            //Uppercase
+            passwordGenerator(false, false, true, passwordLength);
+            } else if(specialCharacters === false && numbers === true && upperCase === true) {
+            //Uppercase and numbers
+            passwordGenerator(false, true, true, passwordLength);
             } else {
-            passwordGenerator(false, false, passwordLength);
+            //Everything off 
+            passwordGenerator(false, false, false, passwordLength);
             }
             
     };
@@ -146,11 +162,12 @@ function buttonPress (){
     passwordArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
                     'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 
                     't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    password = "";
+    password = [];
+    passwordFinal = "";
 };
                 
 
-function passwordGenerator(special, numbers, passLength){
+function passwordGenerator(special, numbers, upper, passLength){
 
     if (special === true){
         for (var i = 0; i< specialCharactersArray.length; i++){
@@ -165,9 +182,17 @@ function passwordGenerator(special, numbers, passLength){
 
     for(var i = 0; i < passLength; i++){
         random(passwordArray.length);
-        password += passwordArray[randomNumber];
+        password.push(passwordArray[randomNumber]);
+        if(upper === true){
+            random(3);
+            if(randomNumber === 1 && isNaN(password[i]) && password[i].length === 1){
+                password[i] = password[i].toUpperCase();
+            }
+        }
     }
 
-    textArea.innerHTML = password;
+    passwordFinal = password.join('');
+
+    textArea.innerHTML = passwordFinal;
 }
 
