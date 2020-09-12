@@ -64,7 +64,6 @@ function buttonPress (){
             password.push(possibleCharacters[randomNumber]);
             if(upperCase === true && lowerCase === true){
                 random(2);
-                console.log(randomNumber);
                 if(randomNumber === 1 && isNaN(password[i]) && password[i].length === 1){
                     password[i] = password[i].toUpperCase();
                 }
