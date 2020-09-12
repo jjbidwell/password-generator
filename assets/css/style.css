@@ -1,10 +1,15 @@
+body {
+    background-color: #ccffac;
+    background: url('https://webdesignerdepot.s3.amazonaws.com/default-images/25.jpg');
+}
+
 #generator-body {
     background-color: whitesmoke;
 }
 
 #password-area {
-    border: dashed green 2px;
+    border: solid darkred 2px;
     font-size: 30px;
-    padding: 20% 5%;
+    padding: 15% 5%;
     overflow-x: hidden;
 }

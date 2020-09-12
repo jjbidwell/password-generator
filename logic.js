@@ -58,13 +58,6 @@ function buttonPress (){
                 possibleCharacters.push(uppercaseArray[i]); 
              }
         }
-
-        // if (upperCase === true){
-        //     for (var i = 0; i< uppercaseArray.length; i++){
-        //         possibleCharacters.push(uppercaseArray[i]); 
-        //      }
-        // };
-    
     
         for(var i = 0; i < passwordLength; i++){
             random(possibleCharacters.length);
@@ -78,35 +71,8 @@ function buttonPress (){
             }
         }
     
-
         passwordFinal = password.join('');
         textArea.innerHTML = passwordFinal;
-
-        // //Everything
-        // if(specialCharacters === true && numbers === true && lowerCase === true && upperCase === true){
-        //     passwordGenerator(true, true, true, true, passwordLength);
-        //     //Special characters, numbers, lowercase
-        //     } else if(specialCharacters === true && numbers === true && lowerCase === true && upperCase === false){
-        //     passwordGenerator(true, true, true, false, passwordLength);
-        //     //Special characters, lowercase, uppercase
-        //     } else if(specialCharacters === true && numbers === false && lowerCase === true && upperCase === true){
-        //     passwordGenerator(true, false, true, true, passwordLength);
-        //     } else if(specialCharacters === true && numbers === false && lowerCase === true && upperCase === false){
-        //     //Special characters 
-        //     passwordGenerator(true, false, false, passwordLength);
-        //     } else if(specialCharacters === false && numbers === true && lowerCase === true && upperCase === false){
-        //     //numbers
-        //     passwordGenerator(false, true, false, passwordLength);
-        //     } else if(specialCharacters === false && numbers === false && lowerCase === true && upperCase === true){
-        //     //Uppercase
-        //     passwordGenerator(false, false, true, passwordLength);
-        //     } else if(specialCharacters === false && numbers === true && lowerCase === true && upperCase === true) {
-        //     //Uppercase and numbers
-        //     passwordGenerator(false, true, true, passwordLength);
-        //     } else {
-        //     //Everything off 
-        //     passwordGenerator(false, false, false, passwordLength);
-        //     }
             
     };
     upperCase = false;
@@ -118,42 +84,4 @@ function buttonPress (){
     passwordFinal = "";
 };
                 
-
-// function passwordGenerator(special, numbers, lower, upper, passLength){
-
-//     if (special === true){
-//         for (var i = 0; i< specialCharactersArray.length; i++){
-//            possibleCharacters.push(specialCharactersArray[i]); 
-//         }
-//     }
-//     if (numbers === true){
-//         for (var i = 0; i< numbersArray.length; i++){
-//            possibleCharacters.push(numbersArray[i]); 
-//         }
-//     }
-//     if (lower === true || u){
-//         for (var i = 0; i< lowerCaseArray.length; i++){
-//             possibleCharacters.push(lowerCaseArray[i]); 
-//          }
-//     }
-//     if (upper === true){
-//         for (var i = 0; i< uppercaseArray.length; i++){
-//             possibleCharacters.push(uppercaseArray[i]); 
-//          }
-//     };
-
-
-//     for(var i = 0; i < passLength; i++){
-//         random(possibleCharacters.length);
-//         password.push(possibleCharacters[randomNumber]);
-
-//     }
-
-
-
-
-//     passwordFinal = password.join('');
-
-//     textArea.innerHTML = passwordFinal;
-// }
 
